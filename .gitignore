@@ -2,6 +2,7 @@
 .vscode/
 
 *.zip
+*.rar
 *.doc
 *.docx
 *.xls
