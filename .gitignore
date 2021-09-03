@@ -1,0 +1,11 @@
+/lit
+.vscode/
+
+*.zip
+*.doc
+*.docx
+*.xls
+*.xlsx
+*.exe
+*.out
+~$*
