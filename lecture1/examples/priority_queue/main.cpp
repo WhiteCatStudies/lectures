@@ -29,10 +29,6 @@ int main()
 	std::getchar();
 	
 	std::cout << "priority_queue implementing minimum heap" << std::endl;
-	// std::greater<int> - функциональный объект, реализующий сравнение
-	// Вариант реализации: класс, определяющий 
-	// bool operator()(T first, T secont) {return first > second};
-	// По умолчанию у std::priority_queue этот параметр равен std::less
 	std::priority_queue<int, std::vector<int>,  std::greater<int>> minHeap;
 
 	for (auto i: data)
