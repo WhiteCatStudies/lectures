@@ -4,6 +4,7 @@
 
 using cForwardItT = std::list<int>::const_iterator;
 
+
 void testAdvance(cForwardItT pos)
 {
 	// void advance(InputIterator& pos, Dist n)
@@ -57,17 +58,13 @@ void testDistance(cForwardItT first, cForwardItT last)
 
 int main()
 {
-	std::list<int> coll;
-	for (int i = 1; i <= 9; ++i) 
-	{
-		coll.push_back(i);
-	}
+	std::list<int> lst{1, 2, 3, 4, 5, 6, 7, 8, 9};
 
-	testAdvance(coll.cbegin());
+	testAdvance(lst.cbegin());
 	std::getchar();
 
-	testNext(coll.cbegin());
+	testNext(lst.cbegin());
 	std::getchar();
 
-	testDistance(coll.cbegin(), std::next(coll.cbegin(), 6));
+	testDistance(lst.cbegin(), std::next(lst.cbegin(), 6));
 }
