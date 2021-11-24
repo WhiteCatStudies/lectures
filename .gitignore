@@ -1,4 +1,5 @@
-/lit
+lit/
+labs/
 .vscode/
 
 *.zip
