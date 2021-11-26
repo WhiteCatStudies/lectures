@@ -237,11 +237,6 @@ void lambdaToFunctionPointer()
 	//    233 |  bool(*fPtr2)(int) = captLambda;
 }
 
-void lambdaStdFunction()
-{
-	
-}
-
 // Один из способов передать лямбда-выражение в функцию - через шаблон
 template <class U, class T>
 void lambdaSort(std::vector<U>& vec, T func)
