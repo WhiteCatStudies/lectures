@@ -2,6 +2,9 @@ lit/
 labs/
 .vscode/
 
+*.png
+*.jpg
+*.jpeg
 *.zip
 *.rar
 *.doc
