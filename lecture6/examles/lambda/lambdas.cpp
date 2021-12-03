@@ -218,7 +218,7 @@ void lambdaCaptureThis()
 
 void lambdaToFunctionPointer()
 {
-	std::cout << "Lets try to convert lambda to function pointer!" << std::endl;
+	/*std::cout << "Lets try to convert lambda to function pointer!" << std::endl;
 	// Лямбда-выражение ожет быть преобразовано в указатель на функцию,
 	// но только если ничего не захватывается
 
@@ -234,7 +234,7 @@ void lambdaToFunctionPointer()
 	bool(*fPtr2)(int) = captLambda;
 	// lambdas.cpp:233:27: error: cannot convert ‘lambdaToFunctionPointer()::<lambda(int)>’
 	// to ‘bool (*)(int)’ in initialization
-	//    233 |  bool(*fPtr2)(int) = captLambda;
+	//    233 |  bool(*fPtr2)(int) = captLambda;*/
 }
 
 // Один из способов передать лямбда-выражение в функцию - через шаблон
@@ -285,8 +285,8 @@ int main()
 	lambdaCaptureThis();
 	std::getchar();
 
-	lambdaToFunctionPointer();
-	std::getchar();
+	//lambdaToFunctionPointer();
+	//std::getchar();
 
 	const auto wasia = Student("Wasia", "Kotik", 3.98);
 	wasia.say();
