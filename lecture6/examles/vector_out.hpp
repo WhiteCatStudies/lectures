@@ -1,7 +1,10 @@
 #include <vector>
 #include <list>
 #include <deque>
-#include <iterator>
+#include <set>
+#include <array>
+#include <set>
+
 #include <iostream>
 
 template <class InputIterator>
@@ -31,4 +34,16 @@ template <class T>
 std::ostream& operator<<(std::ostream& os, const std::deque<T>& dq)
 {
 	return print(os, dq.cbegin(), dq.cend());
+}
+
+template <class T>
+std::ostream& operator<<(std::ostream& os, const std::set<T>& st)
+{
+	return print(os, st.cbegin(), st.cend());
+}
+
+template <class T, size_t N>
+std::ostream& operator<<(std::ostream& os, const std::array<T, N>& arr)
+{
+	return print(os, arr.cbegin(), arr.cend());
 }
