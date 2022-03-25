@@ -1,5 +1,8 @@
-lit/
-labs/
+*/lit/
+*/labs/
+*/exam/
+*/docs/
+*/practice/
 .vscode/
 
 *.png
@@ -16,3 +19,4 @@ labs/
 ~$*
 
 gitkey*
+

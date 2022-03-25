@@ -1,0 +1,1 @@
+/usr/bin/c++     CMakeFiles/helloworld.dir/helloworld_autogen/mocs_compilation.cpp.o CMakeFiles/helloworld.dir/main.cpp.o  -o helloworld  /usr/lib/x86_64-linux-gnu/libQt5Widgets.so.5.12.8 /usr/lib/x86_64-linux-gnu/libQt5Gui.so.5.12.8 /usr/lib/x86_64-linux-gnu/libQt5Core.so.5.12.8 
