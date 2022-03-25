@@ -1,5 +1,7 @@
 #include <atomic>
 
+// std::atomic_bool
+
 
 template <class T>
 class SharedPtr
@@ -34,7 +36,7 @@ public:
 
 private:
     T* _ptr = nullptr;
-    std::atomic_uint32_t* _count;
+    std::uint32_t* _count;
 
     void _decRef(bool deleteCounter = false);
     void _take(const SharedPtr<T>& other) noexcept;
@@ -42,14 +44,14 @@ private:
 
 template<class T>
 SharedPtr<T>::SharedPtr() noexcept :
-    _count(new std::atomic_uint32_t(0))
+    _count(new std::uint32_t(0))
 {
 }
 
 template<class T>
 SharedPtr<T>::SharedPtr(T* ptr) noexcept :
     _ptr(ptr),
-    _count(new std::atomic_uint32_t(1))
+    _count(new std::uint32_t(1))
 {
 }
 
@@ -100,7 +102,7 @@ SharedPtr<T>& SharedPtr<T>::operator=(SharedPtr<T>&& other) noexcept
     other._ptr = nullptr;
 
     _count = other._count;
-    other._count = new std::atomic_uint32_t(0);
+    other._count = new std::uint32_t(0);
     
     return *this;
 }
@@ -176,7 +178,7 @@ T* SharedPtr<T>::get() const noexcept
 template <class T>
 std::uint32_t SharedPtr<T>::use_count() const noexcept
 {
-    return _count->load();
+    return *_count;
 }
 
 template <class T>

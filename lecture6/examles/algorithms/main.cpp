@@ -260,7 +260,7 @@ void testPermutation()
 {
 	std::vector<int> coll{1, 2 , 3};
 	std::cout << "Test permutation algorithms\nInitial sequence: " << coll << 
-		"\nPermutations withstd::next_permutation:\n";
+		"\nPermutations with std::next_permutation:\n";
 
 	// Выполняются перестановки, пока из 1, 2, 3 не будет получено 3, 2, 1 - 
 	// пока интервал не будет отсортирован в порядке убывания

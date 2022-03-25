@@ -169,7 +169,7 @@ void lambdaCaptureNonAutomatic()
     
     auto noCapture = []{ ++global; };
     noCapture();
-    std::cout << "Notihng captured. The global value is " << global << 
+    std::cout << "Nothing captured. The global value is " << global << 
     	"\nNothing was captured, but the global is accessible!\n"\
     	"In fact,  nothing was captured in the above example - "\
     	"only automatic variables are captured " << std::endl;
@@ -198,7 +198,7 @@ void lambdaCaptureNonAutomatic()
 
     auto noCaptureStatic = []{ ++staticInt; };
     noCaptureStatic();
-    std::cout << "Notihng captured. The static value is " << staticInt << std::endl;
+    std::cout << "Nothing captured. The static value is " << staticInt << std::endl;
     std::getchar();
 
     // Тоже ворнинг
@@ -218,7 +218,7 @@ void lambdaCaptureThis()
 
 void lambdaToFunctionPointer()
 {
-	/*std::cout << "Lets try to convert lambda to function pointer!" << std::endl;
+	std::cout << "Lets try to convert lambda to function pointer!" << std::endl;
 	// Лямбда-выражение ожет быть преобразовано в указатель на функцию,
 	// но только если ничего не захватывается
 
@@ -226,15 +226,15 @@ void lambdaToFunctionPointer()
 	bool(*fPtr)(int) = lambda;
 
 	const int val = 7;
-	std::cout << "Is " << val << " between 10 and 3?" << std::boolalpha << 
+	std::cout << "Is " << val << " between 10 and 3? " << std::boolalpha << 
 		fPtr(val) << std::endl;
 
 	auto captLambda = [val](int i) {return (val > i); };
 	// Не компилируется
-	bool(*fPtr2)(int) = captLambda;
+	//bool(*fPtr2)(int) = captLambda;
 	// lambdas.cpp:233:27: error: cannot convert ‘lambdaToFunctionPointer()::<lambda(int)>’
 	// to ‘bool (*)(int)’ in initialization
-	//    233 |  bool(*fPtr2)(int) = captLambda;*/
+	//    233 |  bool(*fPtr2)(int) = captLambda;
 }
 
 // Один из способов передать лямбда-выражение в функцию - через шаблон
@@ -285,8 +285,8 @@ int main()
 	lambdaCaptureThis();
 	std::getchar();
 
-	//lambdaToFunctionPointer();
-	//std::getchar();
+	lambdaToFunctionPointer();
+	std::getchar();
 
 	const auto wasia = Student("Wasia", "Kotik", 3.98);
 	wasia.say();

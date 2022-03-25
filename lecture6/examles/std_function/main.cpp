@@ -90,7 +90,7 @@ void lambdaSort(std::vector<int>& vec, const std::function<bool(int, int)>& func
 
 void testFunctionPass()
 {
-	std::cout << "Pass lambda as std::function and sort increasing\n";
+	std::cout << "Pass lambda as std::function and sort decreasing\n";
 
 	std::vector<int> vec = {4, 7, 3, 1, 9, 55, 31, 90, 8};
 	lambdaSort(vec, [](int a, int b) {return a > b;});
