@@ -1,6 +1,0 @@
-C:\Users\A\Desktop\students\examples\inheritance_correct\Debug\inheritance_correct.exe
-C:\Users\A\Desktop\students\examples\inheritance_correct\Debug\inheritance_correct.pdb
-C:\Users\A\Desktop\students\лекция 2\examples\inheritance_correct\Debug\inheritance_correct.exe
-C:\Users\A\Desktop\students\лекция 2\examples\inheritance_correct\Debug\inheritance_correct.pdb
-C:\Users\A\Desktop\students\lecture 2\examples\inheritance_correct\Debug\inheritance_correct.exe
-C:\Users\A\Desktop\students\lecture 2\examples\inheritance_correct\Debug\inheritance_correct.pdb

@@ -1,4 +1,0 @@
-C:\Users\A\Desktop\students\examples\inheritance_people\Debug\inheritance_people.exe
-C:\Users\A\Desktop\students\examples\inheritance_people\Debug\inheritance_people.pdb
-C:\Users\A\Desktop\students\лекция 2\examples\inheritance_people\Debug\inheritance_people.exe
-C:\Users\A\Desktop\students\лекция 2\examples\inheritance_people\Debug\inheritance_people.pdb
