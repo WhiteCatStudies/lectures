@@ -1,4 +1,0 @@
-/home/anna/students/pt1/lectures/lecture2-3-qt/examples/calc_form/build/CMakeFiles/rebuild_cache.dir
-/home/anna/students/pt1/lectures/lecture2-3-qt/examples/calc_form/build/CMakeFiles/edit_cache.dir
-/home/anna/students/pt1/lectures/lecture2-3-qt/examples/calc_form/build/CMakeFiles/calc.dir
-/home/anna/students/pt1/lectures/lecture2-3-qt/examples/calc_form/build/CMakeFiles/calc_autogen.dir
