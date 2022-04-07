@@ -1,6 +1,13 @@
-/lit
+*/lit/
+*/labs/
+*/exam/
+*/docs/
+*/practice/
 .vscode/
 
+*.png
+*.jpg
+*.jpeg
 *.zip
 *.rar
 *.doc
@@ -10,3 +17,6 @@
 *.exe
 *.out
 ~$*
+
+gitkey*
+
