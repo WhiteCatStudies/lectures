@@ -1,4 +1,0 @@
-/home/anna/students/pt1/lectures/lecture2-3-qt/examples/hello_button/build/CMakeFiles/rebuild_cache.dir
-/home/anna/students/pt1/lectures/lecture2-3-qt/examples/hello_button/build/CMakeFiles/edit_cache.dir
-/home/anna/students/pt1/lectures/lecture2-3-qt/examples/hello_button/build/CMakeFiles/hellobutton.dir
-/home/anna/students/pt1/lectures/lecture2-3-qt/examples/hello_button/build/CMakeFiles/hellobutton_autogen.dir

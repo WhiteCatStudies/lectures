@@ -1,6 +1,10 @@
 # Минимально необходимая версия cmake
 cmake_minimum_required(VERSION 3.16.3)
 
+# set(CMAKE_PREFIX_PATH "C:\\Qt\\Qt5.12.8\\5.12.8\\mingw73_64")
+set(CMAKE_PREFIX_PATH "C:\\Qt\\Qt5.12.8\\5.12.8\\msvc2017_64")
+
+
 # имя проекта - hello world, весрсия - 1.0.0, язык - C/C++ 
 project(helloworld VERSION 1.0.0 LANGUAGES CXX)
 
@@ -9,8 +13,8 @@ set(CMAKE_CXX_STANDARD 11)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
 set(CMAKE_AUTOMOC ON)
-set(CMAKE_AUTORCC ON)
-set(CMAKE_AUTOUIC ON)
+# set(CMAKE_AUTORCC ON)
+# set(CMAKE_AUTOUIC ON)
 
 # поиск файлов библиотеки: бинарные файлы, заголовочные файлы и тд
 # Что и как искать определяет модуль cmake Find<PackageName> 
