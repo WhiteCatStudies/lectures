@@ -13,7 +13,6 @@ Fridge::Fridge(size_t size)
 	_index = 0;
 }
 
-
 Fridge::Fridge(Fridge&& other)
 {
 	std::cout << "Move constructor from fridge size " << other._size << std::endl;
@@ -83,12 +82,8 @@ void Fridge::printOpCount()
 
 Fridge::~Fridge()
 {
-	if (_food != nullptr)
-	{
-		std::cout << "Destructor of fridge size " << 
-			_size << std::endl;
-		delete[] _food;
-	}
+	std::cout << "Destructor of fridge size " << _size << std::endl;
+	delete[] _food;
 }
 
 std::ostream& operator<<(std::ostream& os, const Fridge& fridge)
