@@ -69,8 +69,8 @@ int main()
 	swap(sA, sB);
 	std::getchar();
 
-	Cat catA; 
-	Cat catB;
+	Cat catA("Masia"); 
+	Cat catB("Wasia");
 	swap(catA, catB); 
 	std::getchar();
 

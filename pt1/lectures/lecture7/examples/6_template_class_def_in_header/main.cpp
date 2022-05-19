@@ -15,5 +15,5 @@ int main()
 	MyPair<> money(10, 50);
 	std::cout << money << std::endl;
 
-	MyPair<std::string, std::vector<int>> grades("Anna", std::vector<int>({3, 4, 5}));
+	// MyPair<std::string, std::vector<int>> grades("Anna", std::vector<int>({3, 4, 5}));
 }

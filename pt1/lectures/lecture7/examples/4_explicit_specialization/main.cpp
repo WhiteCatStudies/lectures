@@ -1,9 +1,9 @@
 #include <iostream>
 #include <sstream>
-#include <iomanip> // setprecision
+#include <iomanip> // setprecision, boolalpha
 #include <string>
-#include <limits>
-#include <math.h>
+#include <limits>  // numeric_limits
+#include <math.h>  // M_PI
 
 
 template<typename T> 

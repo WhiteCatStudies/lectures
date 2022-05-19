@@ -13,6 +13,6 @@ T sumTemplate(T first, T second)
 int main()
 {
 	// template specializations
-	sumTemplate(1,2);
-	sumTemplate(1.5, 2.);
+	// sumTemplate(1,2);
+	// sumTemplate(1.5, 2.);
 }

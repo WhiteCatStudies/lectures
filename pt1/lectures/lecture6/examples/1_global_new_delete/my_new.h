@@ -7,13 +7,13 @@
 static std::size_t alloc{0};
 static std::size_t dealloc{0};
 
-void* operator new(std::size_t sz) noexcept
+void* operator new(std::size_t sz)
 {
     alloc += 1;
     return std::malloc(sz);
 }
 
-void* operator new[](size_t sz) noexcept
+void* operator new[](size_t sz)
 {
     alloc += 1;
     return std::malloc(sz);
