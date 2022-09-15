@@ -1,15 +1,23 @@
-#include "myclass.h"
+/*
+Stack unwinding и перехват исключений
+*/
 
 #include <iostream>
+
+#include "myclass.h"
+
 
 void funcD()
 {
 	std::cout << "Entering funcD" << std::endl; 
 	MyClass myClassA('D');
-	std::cout << "Look, exception!" << std::endl; 
-	//throw 99.;
-	throw 99;
-	//throw 'a';
+	std::cout << "Look, exception!" << std::endl;
+
+	// Генерируем исключения разных типов
+	// throw 99.;
+	// throw 99;
+	throw 'a';
+	
 	std::cout << "Returning from funcD" << std::endl;
 }
 
@@ -54,10 +62,10 @@ int main()
 	}
 	catch(int arg)
 	{
-		std::cout << "Int Exception " << arg << std::endl; 
+		std::cout << "Got int Exception " << arg << std::endl; 
 	}
 	catch(double arg)
 	{
-		std::cout << "Double Exception " << arg << std::endl; 	
+		std::cout << "Got double Exception " << arg << std::endl; 	
 	}
 }

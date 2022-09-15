@@ -4,11 +4,13 @@
 #include <chrono>
 #include <iostream>
 #include <random>
+#include <stdexcept>
 
 static const int MAX_TIME = 9;
 
 void goToInstitite()
 {
+	std::cout << "I go to institite today!" << std::endl;
 }
 
 void processLate()
@@ -53,21 +55,45 @@ void makeDesision(int maxTime)
 int main(int argc, char* argv[])
 {
 	unsigned int maxTime = 0; 
-	if (argc != 2)
+	if (argc == 1)
 	{
-		std::cout << "Invalid argumemnts" << std::endl;
-		exit(1);
+		maxTime = MAX_TIME;	
+	}
+	else
+	{
+		const std::string timeArg = std::string(argv[1]);
+
+		try
+		{
+			// Функця std::stoi "бросает" 2 исключения: 
+			// - std::invalid_argument, когда строку енвозможно преобразовать в число
+			// - std::out_of_range, когда результат приводит 
+			// к переполнению целевого типа (здесь - int)
+			maxTime = std::stoi(timeArg);
+		}
+		catch (const std::exception& err)
+		{
+			// Нам важно знать, только было ли преобразование успешным. 
+			// Если нет - не важно, по какой причине
+			// Поэтому перехватывается исключение типа, от которого унаследованы
+			// оба эти исключения (и все исключения стандартной библиотеки)
+			std::cout << "Bad argument " << timeArg << ". Setting to default: "
+				<< MAX_TIME << std::endl;
+
+			maxTime = MAX_TIME;
+		}
 	}
 
 	try
 	{
-		const std::string timeArg = std::string(argv[1]);
-		maxTime = std::stoi(timeArg);
 		makeDesision(maxTime);
-		std::cout << "I go to institite today!" << std::endl;
+		
 	}
 	catch (const LateException& lateErr)
+	//catch(StudentException err)
 	{
+		// Исключение может быть передано в catch-блок по ссылке
+		// В противном случае, будет вызван конструктор копирования
 		std::cout << lateErr.getReason() << ". What should I do?" << std::endl;
 		processLate();
 	}
@@ -76,9 +102,5 @@ int main(int argc, char* argv[])
 		std::cout << badLuckErr.getReason() << ". What should I do?" << std::endl;
 		processBadLuck();
 	}
-	catch (...)
-	{
-		// вместо std::exception ловим вообще все исключения
-		std::cout << "Bad arguments " << std::endl;
-	}
+	
 }

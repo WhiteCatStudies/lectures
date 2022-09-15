@@ -5,7 +5,7 @@
 #include <iostream>
 #include <random>
 
-static const int MAX_TIME = 6;
+static const int MAX_TIME = 9;
 
 void goToInstitite()
 {
@@ -21,7 +21,7 @@ void makeDesision()
 
 	if (hour > MAX_TIME)
 	{
-		throw StudentException("It is too late");	
+		throw StudentException(std::to_string(hour));	
 	}
 
 	// Проспать не получилось. Придётся бросaть кости
@@ -51,7 +51,7 @@ int main()
 	//catch(StudentException err)
 	{
 		// Исключение может быть передано в catch-блок по ссылке
-		// В противном случае, будет вызван конструктор копирования
+		// В противном случае, может быть вызван конструктор копирования класса-исключения
 		std::cout << "I wont go to the institute because " << 
 			err.getReason() << std::endl;
 	}
