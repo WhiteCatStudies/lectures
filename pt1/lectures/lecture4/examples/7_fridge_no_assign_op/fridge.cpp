@@ -54,9 +54,6 @@ std::string Fridge::get()
 
 Fridge::~Fridge()
 {
-	if (_food != nullptr)
-	{
-		std::cout << "Fridge: freeing memory size " << _size << std::endl;
-		delete[] _food;
-	}
+	std::cout << "Fridge: freeing memory size " << _size << std::endl;
+	delete[] _food;
 }

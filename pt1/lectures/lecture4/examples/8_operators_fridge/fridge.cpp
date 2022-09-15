@@ -93,12 +93,9 @@ std::string Fridge::get()
 
 Fridge::~Fridge()
 {
-	if (_food != nullptr)
-	{
-		std::cout << "Fridge: freeing memory of fridge size " << 
-			_size << std::endl;
-		delete[] _food;
-	}
+	std::cout << "Fridge: freeing memory of fridge size " << 
+		_size << std::endl;
+	delete[] _food;
 }
 
 std::istream& operator>>(std::istream& is, Fridge& fridge)
