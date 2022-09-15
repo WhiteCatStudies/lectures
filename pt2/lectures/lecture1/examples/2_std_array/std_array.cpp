@@ -26,7 +26,7 @@ int main()
 	std::array<int, 4> garbageArr;
 	std::cout << "Unintialized array" << std::endl;
 	printArray(garbageArr);
-	std:getchar();
+	std::getchar();
 
 	// Инициализация пустым "{}"
 	// вызывает конструкторы элементов по умолчанию
