@@ -22,7 +22,8 @@ void testAccess(const std::list<std::string>& goodThings)
 		"\nThe last good thing is " << goodThings.back() << std::endl;
 
 	std::getchar(); 
-	// Оператора индексирования у списка нет. Доступ только через итераторы
+	// Оператора индексирования у списка нет, 
+	// потому что нет произвольного доступа. Доступ только через итераторы
 	auto it = goodThings.begin();
 	std::cout << "You should get iterators to acces other elements" << 
 		"\nWhat is the second best thing?\n" << *(++it) <<
@@ -41,11 +42,14 @@ void testInsert(std::list<std::string>& goodThings)
 	// В отличие от вектора, у списка есть методы для вставки/удаления элемента 
 	// в начало списка. Реализация STL пособствует выбору правильного контейнера:
 	// хотите добавлять элементы в начало - не берите вектор - это дорого
+	std::cout << "Insert at the front\n";
 	goodThings.push_front("Coffee");
 	const auto begIt = goodThings.begin();
 	std::cout << "Before insertions\n";
 	printWithAddress(goodThings);
+	std::getchar();
 
+	std::cout << "There are lots of thing better than cats\n";
 	auto it = std::find(begIt, goodThings.end(), "Cats");
 	if (it != goodThings.end())
 	{
@@ -68,21 +72,22 @@ void testErase(std::list<std::string>& goodThings)
 {
 	std::cout << "-----Testing erase-----\n";
 	std::cout << "Good things are often bad for health. We have to refuse chokolate\n";
+	std::getchar();
 	auto chokoIt = std::find(goodThings.begin(), goodThings.end(), "Chokolate");
+	
 	// Возвращает итератор на следующий элемент
 	auto res = goodThings.erase(chokoIt);
 	std::cout << "Erase returnerd iterator to " << *res << '\n';
 	// Шоколада больше нет (=
 	printWithAddress(goodThings);
-	
-	// По идее (и по документации на cppreference) должен быть segmentation fault,
-	// но g++ v. 8.1.0 и v.8.3.0 по-видимому где-то сохраняет состояние итератора
+	std::getchar();	
 	// На MSVC в дебаге ошибка, в релизе норм.
 	// Но лучше считать, что итератор на удалённый элемент списка инвалидируется - 
 	// Это соответствует здравому смыслу и избавляет от сюрпризов
 	std::cout << "Lets dereference chokolate iterator!\n" << *chokoIt << 
-		"Proneslo?\n" << 
-		"Lets try longer strings. Large memory chancks are more likely to be ovewritten\n";
+		"\nProneslo?\n";
+	std::getchar();
+	std::cout << "Lets try longer strings. Large memory chancks are more likely to be ovewritten\n";
 
 	// Пример, который, скорее всего, покажет, чем плох инвалидировавшийся итератор
 	std::list<std::string>::iterator it;

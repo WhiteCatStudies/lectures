@@ -103,6 +103,7 @@ void testResize()
     printSizeCapacity(v);
     std::getchar();
 
+    // shrink_to_fit позволяет уменьшить capacity до size 
     v.shrink_to_fit();
     std::cout << "shrink_to_fit()" << std::endl;
     printSizeCapacity(v);
@@ -113,7 +114,8 @@ void testResize()
     printSizeCapacity(v);
     std::getchar();
 
-
+    // shrink_to_fit появился только в C++ 11
+    // раньше с этой целью приходилось использовать swap trick
     std::cout << "Testing old good swap trick" << std::endl;
     swapTrick();
     std::getchar();
@@ -170,7 +172,7 @@ void testInsert()
     std::cout << "Before insertions\n";
     printFirst(vec);
     printSizeCapacity(vec);
-    std::cout << "Iterator points to address " << &(*it) << '\n' << 
+    std::cout << "Begin iterator points to address " << &(*it) << '\n' << 
     	"Array starts at " << &vec[0] << std::endl;
  	std::getchar();
 
@@ -182,7 +184,7 @@ void testInsert()
    	// но итреатор указывает на старый адрес, т.е. итератор инвалидирован
    	// Результат - segfault или некорректное поведение 
    	// при использовании такого итератора
-    std::cout << "Iterator points to address " << &(*it) << '\n' << 
+    std::cout << "Begin iterator points to address " << &(*it) << '\n' << 
     	"Array starts at " << &vec[0] << std::endl;
     std::getchar();
 
@@ -198,6 +200,9 @@ void testInsert()
     printFirst(vec);
     */
 
+    // Поскольку мы не знаем точно, как увеличивается capacity 
+    // в данной реализации STL, лучше брать новый итератор 
+    // после каждой операции, потенциально изменяющей capacity
     std::cout << "Insert position is pointed by correct iterator\n" <<
     	"Insert in the beginning" << std::endl;
     vec.insert(vec.begin(), 2, 300);
@@ -224,6 +229,9 @@ void testErase()
 	numbers.erase(thirdIt);
 	printFirst(numbers);
 
+	// erase инвалидирует итераторы на все элементы,
+	// следующие за позицией удаления (включая последнюю)
+	// после erase тоже лучше взять новый итератор - это недорогая операция
 	std::cout << "Dereference the third element iterator: " << (*thirdIt) << std::endl;
 	std::cout << "Dereference the last element iterator: " << (*lastIt) << std::endl;
 }
@@ -232,7 +240,7 @@ int main()
 {
 	std::cout << "Test this useless custom allocator" << std::endl;
 	// Конструктор со списком инициализации
-	std::vector<int, MyAlloc<int>> cutomAllocVector {1,2,3,4,5,6,7,8,9};
+	std::vector<int, MyAlloc<int>> cutomAllocVector {1, 2, 3, 4, 5, 6, 7, 8, 9};
 	std::getchar();
 
 	try
