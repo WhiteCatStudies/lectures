@@ -1,85 +1,104 @@
 #include <iostream>
 #include <set>
-#include <algorithm>
 #include <iterator>
 
-void testBounds()
+
+template <class SetT>
+void testBounds(const SetT& coll, const typename SetT::value_type& val)
 {
-	std::set<int> c;
-	c.insert(1);
-	c.insert(2);
-	c.insert(4);
-	c.insert(5);
-	c.insert(6);
-	
 	// итератор на первый элемент, больший либо равный данному
 	// т.е. позицию, куда был бы вставлен данный элемент
-	std::cout << "lower_bound(3): " << *c.lower_bound(3) << std::endl;
+	std::cout << "lower_bound(" << val << "): " << *coll.lower_bound(val) << std::endl;
 
 	// итератор на первый элемент, строго больший данного
 	// т.е. позицию, куда был бы вставлен данный элемент
-	std::cout << "upper_bound(3): " << *c.upper_bound(3) << std::endl;
+	std::cout << "upper_bound(" << val << "): " << *coll.upper_bound(val) << std::endl;
 
 	// std::pair<iterator, iterator>
 	// first указывает на элемент, больший либо равный данному
 	// second - на элемент, строго больший данного
 	// т.е. позицию, куда... был бы вставлен данный элемент
-	std::cout << "equal_range(3): " << *c.equal_range(3).first << " "
-		<< *c.equal_range(3).second << std::endl;
-	
-	std::getchar();
+	std::cout << "equal_range(" << val << "): " << *coll.equal_range(val).first << " "
+		<< *coll.equal_range(val).second << std::endl;
+}
 
-	std::cout << "lower_bound(5): " << *c.lower_bound(5) << std::endl;
-	std::cout << "upper_bound(5): " << *c.upper_bound(5) << std::endl;
-	std::cout << "equal_range(5): " << *c.equal_range(5).first << " "
-		<< *c.equal_range(5).second << std::endl;
+template <class SetT>
+void traverse(const SetT& coll)
+{
+	// range based loop использует итераторы
+	// аналогично for(SetT::iterator it = set.begin(); it != set.end(); ++it)
+	for (const auto elem : coll) 
+	{
+		std::cout << elem << " ";
+	}
+}
 
+template <class SetT>
+void testInsert(SetT& coll, const typename SetT::value_type& val)
+{
+	// insert возвращает std::pair<iterator,bool>
+	// итератор на вставленный элемент или на элемент, препятствоваший вставке
+	// второе значение - успех или неуспех вставки (если такой элемент уже есть)
+	const auto status = coll.insert(val);
+	if (status.second) 
+	{
+		std::cout << val << " inserted as element "
+			<< std::distance(coll.begin(), status.first) + 1 << std::endl;
+	}
+	else 
+	{
+		std::cout << val << " already exists" << std::endl;
+	}
+}
+
+template <class SetT>
+void inRange(const SetT& coll, const typename SetT::value_type& start, 
+	const typename SetT::value_type& end)
+{
+	const auto startIt = coll.upper_bound(start);
+	auto endIt = coll.upper_bound(end);
+	std::copy(startIt, --endIt, std::ostream_iterator<typename SetT::value_type>(std::cout, " "));
 }
 
 
 int main()
 {
-	testBounds();	
+	std::set<int> coll;
+	coll.insert({4, 3, 5, 1, 6, 2});
+	std::cout << "Depth-first in-order set traverdal: ascending\n"; 
+	traverse(coll);
 	std::getchar();
 
-	// type of the collection:
-	// - no duplicates
-	// - elements are integral values
-	// - descending order
-	std::set<int, std::greater<int>> coll1;
-	coll1.insert({4, 3, 5, 1, 6, 2});
-	coll1.insert(5);
-	for (int elem : coll1) 
-	{
-		std::cout << elem << " ";
-	}
+	std::set<int, std::greater<int>> collGreater{4, 3, 5, 1, 6, 2, 5};
+	std::cout << "Depth-first in-order set traverdal: descending\n"; 
+	traverse(collGreater);
+	std::getchar();
 
-	std::cout << std::endl;
+	std::cout << "Try insert duplicate\n";
+	testInsert(coll, 4);
+	std::getchar();
+
+	std::cout << "Insert new element\n";
+	testInsert(coll, 10);
+	std::getchar();
 	
-	// insert возвращает std::pair<iterator,bool>
-	// итератор на вставленный элемент или на элемент, препятствоваший вставке
-	// второе значение - успех или неуспех вставки (если такой элемент уже есть)
-	auto status = coll1.insert(4);
-	if (status.second) 
-	{
-		std::cout << "4 inserted as element "
-			<< distance(coll1.begin(), status.first) + 1 << std::endl;
-	}
-	else 
-	{
-		std::cout << "4 already exists" << std::endl;
-	}
-	
-	std::set<int> coll2(coll1.cbegin(), coll1.cend());
-	// print all elements of the copy using stream iterators
-	std::copy(coll2.cbegin(), coll2.cend(), std::ostream_iterator<int>(std::cout," "));
-	std::cout << std::endl;
-	// remove all elements up to element with value 3
-	coll2.erase(coll2.begin(), coll2.find(3));
-	// remove all elements with value 5
-	int num = coll2.erase (5);
-	std::cout << num << " element(s) removed" << std::endl;
-	// print all elements
-	std::copy(coll2.cbegin(), coll2.cend(), std::ostream_iterator<int>(std::cout," "));
-	std::cout << std::endl;
+	std::cout << "Test bounds\n";
+	testBounds(coll, 4);
+	std::getchar();
+	testBounds(coll, 8);
+	std::getchar();
+
+	const int start = 2;
+	const int end = 6;
+	std::cout << "Get elements in range (" << start << "; " << end << ")\n";
+	inRange(coll, start, end);
+	std::getchar();
+
+	std::cout << "Insert duplicates to multiset\n"; 
+	std::multiset<int> multicoll(coll.begin(), coll.end());
+	multicoll.insert(4);
+	multicoll.insert(4);
+	multicoll.insert(4);
+	multicoll.insert(4);
+	std::copy(multicoll.begin(), multicoll.end(), std::ostream_iterator<int>(std::cout, " "));
 }
