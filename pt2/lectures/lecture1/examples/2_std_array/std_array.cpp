@@ -26,13 +26,14 @@ int main()
 	std::array<int, 4> garbageArr;
 	std::cout << "Unintialized array" << std::endl;
 	printArray(garbageArr);
-	std:getchar();
+	std::getchar();
 
 	// Инициализация пустым "{}"
 	// вызывает конструкторы элементов по умолчанию
 	std::array<int, 4> zeroArr = {};
 	std::cout << "Empty initializer list" << std::endl;
 	printArray(zeroArr);
+	std::getchar();
 
 	// Массив - это составной тип (aggregate), следовательно, к нему применимы правила
 	// aggregate initialization
@@ -47,10 +48,10 @@ int main()
 	// Интерфейс для прямого доступа к нему не определён. 
 	// Нет гарантии, что это в другой реализации STL он называется так же 
 	int* ptr = initArr._M_elems;
-	std::cout << *ptr << " " << *(ptr + 1) << std::endl;
+	std::cout << "Getting members by raw pointer:\n" << *ptr << " " << *(ptr + 1) << std::endl;
 	std::getchar();
 
-	// Механизм инициализации std::array можно принять за ицнициализацию списком,
+	// Механизм инициализации std::array можно принять за инициализацию списком,
 	// но это не она. В противном случае std::array имел бы конструктор
 	// и оператор копирующего присваивания, принимающий как параметр std::initializar_list
 
@@ -66,14 +67,17 @@ int main()
 	std::array<std::string, arrSize> testArray = {"Anna", "loves", "kittens"};
 	// Доступ к произвольному элементу при помощи оператора индексирования: O(1)
 	std::cout << "Testing member access" << std::endl;
-	std::cout << "The second element is: " << testArray[1] << std::endl;
+	std::cout << "Indexing operator: The second element is: " << testArray[1] << std::endl;
 	// Оператор индексирования не проверяет границы массива:
-	// std::cout << "The tenth element is: " << testArray[10] << std::endl;
+
+	std::cout << "Indexing operator: The tenth element is: " << testArray[10] << std::endl;
+	std::getchar();
 	// А метод at() кидает std::out_of_range при нарушении границ
 
 	try
 	{
-		std::cout << "The tenth element is: " << testArray.at(10) << std::endl;
+		std::cout << "at(size_t) method: The tenth element is: " << std::endl;
+		std::cout << testArray.at(10) << std::endl;
 	}
 	catch(const std::out_of_range& err)
 	{
@@ -81,11 +85,11 @@ int main()
 	}
 
 	//Доступ к первому элементу: О(1)
-	std::cout << "The first element is: " << testArray.front() << std::endl;
+	std::cout << "front() mehod: The first element is: " << testArray.front() << std::endl;
 	std::getchar();
 
 	// Доступ к поледнему элементу: O(1)
-	std::cout << "The last element is: " << testArray.back() << std::endl;
+	std::cout << "back() method: The last element is: " << testArray.back() << std::endl;
 	std::getchar();
 
 	// Доступ к массиву (underlying array): O(1) 
@@ -105,6 +109,7 @@ int main()
 	std::getchar();
 
 	// Интератор на начало массива
+	// тип итератора - std::array<int>::iterator
 	auto it = testArray.begin();
 	// итератор std::array поддерживает произвольный доступ, т.е. это 
 	// RandomAccessIterator 

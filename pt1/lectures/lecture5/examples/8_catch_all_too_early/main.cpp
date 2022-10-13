@@ -9,6 +9,7 @@ static const int MAX_TIME = 9;
 
 void goToInstitite()
 {
+	std::cout << "I go to institite today!" << std::endl;
 }
 
 void processLate()
@@ -64,7 +65,6 @@ int main(int argc, char* argv[])
 		const std::string timeArg = std::string(argv[1]);
 		maxTime = std::stoi(timeArg);
 		makeDesision(maxTime);
-		std::cout << "I go to institite today!" << std::endl;
 	}
 	catch (...)
 	{
