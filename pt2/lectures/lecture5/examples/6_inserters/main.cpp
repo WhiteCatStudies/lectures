@@ -46,7 +46,7 @@ void testBackInserter()
 	print(coll);
 	std::getchar();
 
-	// Использование с алгоритмамиЖ повторная вставка всех элементов 
+	// Использование с алгоритмами: повторная вставка всех элементов 
 	// в конец контейнера 
 	coll.reserve(2*coll.size());
 
@@ -118,7 +118,7 @@ void testInserter()
 	print(coll, "list");
 	std::getchar();
 	
-	// Скопируем все элементы списка в тот эе список, начиная со второй позиции
+	// Скопируем все элементы списка в тот же список, начиная со второй позиции
 	std::cout << "And then copy all the elements to the same list " \
 		"starting from the second position" << std::endl;
 	std::copy(coll.begin(), coll.end(), inserter(coll2, ++coll2.begin())); 
