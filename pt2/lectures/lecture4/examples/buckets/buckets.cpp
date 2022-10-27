@@ -38,7 +38,9 @@ void printHashTableState (const T& cont)
 	for (auto idx=0; idx != cont.bucket_count(); ++idx) 
 	{
 		std::cout << " b[" << std::setw(2) << idx << "]: ";
-		// Это итераторы на списки, которые содержатся в каждом бакете (на цепочки) 
+		// У неупорядоченных контейнеров есть дополнительный тип итератора - 
+		// local_iterator 
+		// Это итераторы на списки, которые содержатся в каждом бакете (на цепочки)
 		for (auto pos=cont.begin(idx); pos != cont.end(idx); ++pos) 
 		{
 			std::cout << *pos << " ";
@@ -51,12 +53,12 @@ void printHashTableState (const T& cont)
 void testSet()
 {
 	std::cout << "Testing unordered set" << std::endl;
-	std::unordered_set<int> intset = { 1,2,3,5,7,11,13,17,19 };
+	std::unordered_set<int> intset = {1, 2, 3, 5, 7, 11, 13, 17, 19};
 	printHashTableState(intset);
 	std::getchar();
 	// Посмотрим, будет ли rehash
 	std::cout << "Insert some other elements and see if rehash happens" << std::endl;
-	intset.insert({-7,17,33,4});
+	intset.insert({-7, 17, 33, 4});
 	printHashTableState(intset);
 }
 
@@ -65,27 +67,31 @@ void testMap()
 	// Англо-немецкий словарь
 	std::cout << "Testing unordered multimap" << std::endl; 
 	std::unordered_multimap<std::string, std::string> dict = {
-		{"day","Tag"},
-		{"strange","fremd"},
-		{"car","Auto"},
-		{"smart","elegant"},
-		{"trait","Merkmal"},
-		{"strange","seltsam"}
+		{"day", "Tag"},
+		{"strange", "fremd"},
+		{"car", "Auto"},
+		{"smart", "elegant"},
+		{"trait", "Merkmal"},
+		{"strange", "seltsam"}
 	};
 	printHashTableState(dict);
 	std::getchar();
 
 	std::cout << "Insert some other elements and see if rehash happens" << std::endl;
 	dict.insert({
-		{"smart","raffiniert"},
-		{"smart","klug"},
-		{"clever","raffiniert"}
+		{"smart", "raffiniert"},
+		{"smart", "klug"},
+		{"clever", "raffiniert"}
 	});
 	printHashTableState(dict);
 	std::getchar();
 	
-	std::cout << "Change maximum load factor ad see if rehash happens" << std::endl;
-	dict.max_load_factor(0.5);
+	std::cout << "Change maximum load factor and see if rehash happens" << std::endl;
+	// max_load_factor меняет хэш-функцию и число бакетов 
+	// (не вызывает rehash), но когда rehash будет вызван в
+	// в результате вставки новых элементов или вручную,
+	// новый max_load_factor будет учтён (g++ 8.1.0 MinGW)
+	dict.max_load_factor(0.2);
 	printHashTableState(dict);
 	std::getchar();
 
@@ -93,21 +99,6 @@ void testMap()
 		std::endl;
 	dict.insert({"Cat", "Katze"});
 	printHashTableState(dict);
-}
-
-void testReserve(size_t num, float maxLoadFactor)
-{
-	std::cout << "Default-constructed set" << std::endl; 
-	std::unordered_set<int> test;
-	printHashTableState(test);
-	std::getchar();
-
-	std::cout << "Reserved for " << num << 
-		" elements with max load factor " << maxLoadFactor << std::endl;
-
-	test.max_load_factor(maxLoadFactor);
-	test.reserve(num);
-	printHashTableState(test);
 }
 
 void testRehash(size_t num, float maxLoadFactor)
@@ -125,18 +116,36 @@ void testRehash(size_t num, float maxLoadFactor)
 	printHashTableState(test);
 }
 
-int main()
+void testReserve(size_t num, float maxLoadFactor)
 {
-	// testSet();
-	// std::getchar();
-
-	// testMap();
-	// std::getchar();
-
-	size_t num = 10;
-	float maxLoadFactor = 0.5;
-	testReserve(num, maxLoadFactor);
+	std::cout << "Default-constructed set" << std::endl; 
+	std::unordered_set<int> test;
+	printHashTableState(test);
 	std::getchar();
 
+	std::cout << "Reserved for " << num << 
+		" elements with max load factor " << maxLoadFactor << std::endl;
+
+	test.max_load_factor(maxLoadFactor);
+	// cppreference: 
+	// void reserve( size_type count );
+	// Effectively calls rehash(std::ceil(count / max_load_factor()))
+	test.reserve(num);
+	printHashTableState(test);
+}
+
+int main()
+{
+	testSet();
+	std::getchar();
+
+	testMap();
+	std::getchar();
+
+	const size_t num = 10;
+	const float maxLoadFactor = 0.5;
 	testRehash(num, maxLoadFactor);
+	std::getchar();
+
+	testReserve(num, maxLoadFactor);
 }

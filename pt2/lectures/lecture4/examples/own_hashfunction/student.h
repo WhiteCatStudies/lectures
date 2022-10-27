@@ -9,7 +9,7 @@ public:
 
 	void say() const;
 
-	// надо как-то сравнивать студентов, чтобы найти нужного в хэш-таблице
+	// надо как-то сравнивать студентов, чтобы найти нужного в цепочке хэш-таблицы
 	bool operator==(const Student& other) const;
 
 	std::string getName() const;

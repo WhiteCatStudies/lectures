@@ -23,5 +23,4 @@ int main()
 		std::cout << "Masha is found!" << std::endl;
 		it->say();
 	}
-
 }
