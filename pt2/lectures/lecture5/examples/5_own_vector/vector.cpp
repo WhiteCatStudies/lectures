@@ -231,10 +231,7 @@ public:
 
     MyVector<T>& operator=(const MyVector<T>& other)
     {
-        if(_arr != nullptr)
-        {
-            delete[] _arr;
-        }
+        delete[] _arr;
 
         _size = other._size;
         _capacity = other._capacity;
@@ -244,10 +241,7 @@ public:
 
     MyVector<T>& operator=(MyVector<T>&& other)
     {
-        if(_arr != nullptr)
-        {
-            delete[] _arr;
-        }
+        delete[] _arr;
 
         _size = other._size;
         _capacity = other._capacity;
@@ -269,10 +263,7 @@ public:
 
     ~MyVector()
     {
-        if(_arr != nullptr)
-        {
-            delete[] _arr;
-        }
+        delete[] _arr;
     };
 
 private:

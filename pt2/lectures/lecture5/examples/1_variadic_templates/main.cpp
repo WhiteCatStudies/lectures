@@ -12,14 +12,14 @@ std::ostream& operator<<(std::ostream& os, const Cat& cat)
 	return os;
 }
 
-void print ()
+void print()
 {
 	// Базовый случай рекурсии
 	std::cout << std::endl; 
 }
 
 template <typename T, typename... Types>
-void print (const T& firstArg, const Types&... args)
+void print(const T& firstArg, const Types&... args)
 {
 	// const T& firstArg - первый аргумент
 	// const Types&... args - все остальные аргументы

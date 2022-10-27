@@ -1,3 +1,5 @@
+// https://habr.com/ru/post/228031/
+
 // tuple - рекурсивная структура данных!
 // Опережающее определение для наследования
 template<class... Args>
@@ -19,8 +21,11 @@ struct tuple<Head, Tail...> : tuple<Tail...>
         : tuple<Tail...>(tail...),
           head(h)
     {}
-    typedef tuple<Tail...>  base_type;
-    typedef Head            value_type;
+    using base_type = tuple<Tail...>;
+    // старый синтаксис
+    // typedef tuple<Tail...>  base_type;
+
+    using value_type = Head;
     
     base_type& base = static_cast<base_type&>(*this);
     Head       head;
@@ -31,10 +36,12 @@ struct tuple<Head, Tail...> : tuple<Tail...>
 template<int I, class Head, class... Args>
 struct getter
 {
-    typedef typename getter<I-1, Args...>::return_type return_type;
+    // typedef typename getter<I-1, Args...>::return_type return_type;
+    using return_type = typename getter<I-1, Args...>::return_type;
 
     static return_type get(tuple<Head, Args...> t)
     {
+        // Пропускаем Head
         return getter<I-1, Args...>::get(t);
     }
 };
@@ -43,7 +50,8 @@ struct getter
 template<class Head, class... Args>
 struct getter<0, Head, Args...>
 {
-    typedef typename tuple<Head, Args...>::value_type return_type;
+    // typedef typename tuple<Head, Args...>::value_type return_type;
+    using return_type = typename tuple<Head, Args...>::value_type;
 
     static return_type get(tuple<Head, Args...> t)
     {
