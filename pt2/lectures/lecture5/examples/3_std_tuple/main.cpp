@@ -43,7 +43,7 @@ void printHelper<std::string>()
 template <> 
 void printHelper<const char*>() 
 {
-	std::cout << "std::string\n";
+	std::cout << "const char*\n";
 }
 
 //cppreference on std::tuple_element_t

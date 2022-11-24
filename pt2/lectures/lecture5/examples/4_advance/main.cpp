@@ -52,7 +52,7 @@ void testNext(cForwardItT pos)
 void testDistance(cForwardItT first, cForwardItT last)
 {
 	std::cout << "Testing std::distance\nThe distance between " << *first << 
-		" and " << *last << " is " << std::distance(last, first) << " elements" <<
+		" and " << *last << " is " << std::distance(first, last) << " elements" <<
 		std::endl;
 }
 
@@ -66,5 +66,5 @@ int main()
 	testNext(lst.cbegin());
 	std::getchar();
 
-	testDistance(lst.cbegin(), std::next(lst.cbegin(), 6));
+	testDistance(lst.cbegin(), lst.end());
 }

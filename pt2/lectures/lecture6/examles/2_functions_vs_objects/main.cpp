@@ -4,7 +4,8 @@
 #include <algorithm>
 
 #include "../vector_out.hpp"
-#include "custom_func_obj.hpp"
+#include "add.h"
+#include "mean.h"
 
 using cIntVecItT = std::vector<int>::const_iterator; 
 
@@ -32,13 +33,11 @@ void testAllOf(const std::vector<int>& vec)
 {
 	std::cout << "Testing std::all_of\nVector is " << vec << std::endl;
 	
-	// Внимание! Attention! Achtung! Старый некрасивый синтаксис!
-	// Так-то вроде ничего страшного, но может быть гораздо хуже
 	std::cout << "Checking with predicate 1. Are all the elements less then 10? " << 
 		std::boolalpha << std::all_of(vec.cbegin(), vec.cend(), &pred1);
 	std::getchar();
 
-
+	// Передаём указатель на функцию в другую функцию
 	std::cout << "Checking with predicate 1 again: " << 
 		check(vec.cbegin(), vec.cend(), &pred1) << 
 		"\nAre all the elements between 5 and 10? " <<

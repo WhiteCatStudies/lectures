@@ -32,9 +32,9 @@ void testBackInserter()
 	std::cout << "Insert elements to vector using back inserter" << std::endl;
 	std::back_insert_iterator<std::vector<int>> iter(coll);
 	*iter = 1;
-	iter++;
+	// iter++;
 	*iter = 2;
-	iter++;
+	// iter++;
 	*iter = 3;
 
 	print(coll);

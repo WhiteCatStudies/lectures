@@ -23,9 +23,9 @@ void testTransform(std::vector<int>& vec)
 
 	// Возведение в квадрат
 	std::transform(vec.cbegin(), vec.cend(), // первый множитель
-	vec.cbegin(), // второй множитель
-	vec.begin(), // место хранения результата
-	std::multiplies<int>()); //операция
+		vec.cbegin(), // второй множитель
+		vec.begin(), // место хранения результата
+		std::multiplies<int>()); //операция
 
 	std::cout << "Squared:\n" << vec << std::endl; 
 }
@@ -47,7 +47,7 @@ void testFindIf(const std::vector<int>& vec)
 	}
 	else
 	{
-		std::cout << "All elements are less the 100 or greater then 300" << 
+		std::cout << "All elements are less the 100 or greater than 300" << 
 			std::endl;
 	}
 }
@@ -90,6 +90,7 @@ void testMemberBind()
 									Person("Track")};
 	
 	// Первая версия print для всех элементов (с одним параметром)
+	// Этот параметр - this для каждого экземпляра класса Person
 	std::cout << "Print with one parameter" << std::endl; 
 	std::for_each(coll.begin(), coll.end(),
 		std::bind(&Person::print, _1));

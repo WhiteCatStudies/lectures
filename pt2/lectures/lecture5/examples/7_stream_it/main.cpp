@@ -43,6 +43,8 @@ void testIstream()
 		std::cout << "once again: " << *intReader << std::endl;
 		++intReader;
 	}
+
+	std::cout << "The end!" << std::endl;
 }
 
 int main()

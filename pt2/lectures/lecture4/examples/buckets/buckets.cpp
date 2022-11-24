@@ -35,7 +35,7 @@ void printHashTableState (const T& cont)
 
 	// Распределение элементов по бакетам
 	std::cout << "data: " << std::endl;
-	for (auto idx=0; idx != cont.bucket_count(); ++idx) 
+	for (auto idx=0; idx != cont.bucket_count(); ++idx)
 	{
 		std::cout << " b[" << std::setw(2) << idx << "]: ";
 		// У неупорядоченных контейнеров есть дополнительный тип итератора - 
