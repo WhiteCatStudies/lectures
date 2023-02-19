@@ -11,7 +11,7 @@ Cat::Cat(const std::string& name, const std::string& breed,
 	int mood, int energy, int hunger):
 	_breed(breed), _name(name), _mood(_validate(mood))
 {
-	// _mood = _validate(mood);
+	_mood = _validate(mood);
 	_energy = _validate(energy);
 	_hunger = _validate(hunger);
 
