@@ -65,7 +65,7 @@ int main()
 {
 	std::set<int> coll;
 	coll.insert({4, 3, 5, 1, 6, 2});
-	std::cout << "Depth-first in-order set traverdal: ascending\n"; 
+	std::cout << "Depth-first in-order set traversal: ascending\n"; 
 	traverse(coll);
 	std::getchar();
 

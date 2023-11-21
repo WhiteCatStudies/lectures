@@ -31,7 +31,7 @@ int main()
 	// Инициализация пустым "{}"
 	// вызывает конструкторы элементов по умолчанию
 	std::array<int, 4> zeroArr = {};
-	std::cout << "Empty initializer list" << std::endl;
+	std::cout << "Empty" << std::endl;
 	printArray(zeroArr);
 	std::getchar();
 

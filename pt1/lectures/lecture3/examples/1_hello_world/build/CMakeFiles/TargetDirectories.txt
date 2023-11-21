@@ -1,0 +1,4 @@
+/home/anna/students/cpp/pt1/lectures/lecture3/examples/1_hello_world/build/CMakeFiles/rebuild_cache.dir
+/home/anna/students/cpp/pt1/lectures/lecture3/examples/1_hello_world/build/CMakeFiles/edit_cache.dir
+/home/anna/students/cpp/pt1/lectures/lecture3/examples/1_hello_world/build/CMakeFiles/helloworld.dir
+/home/anna/students/cpp/pt1/lectures/lecture3/examples/1_hello_world/build/CMakeFiles/helloworld_autogen.dir

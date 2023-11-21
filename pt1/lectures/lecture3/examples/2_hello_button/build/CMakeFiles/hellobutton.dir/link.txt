@@ -1,0 +1,1 @@
+/usr/bin/c++    -rdynamic CMakeFiles/hellobutton.dir/hellobutton_autogen/mocs_compilation.cpp.o CMakeFiles/hellobutton.dir/helloform.cpp.o CMakeFiles/hellobutton.dir/main.cpp.o  -o hellobutton  /usr/lib/x86_64-linux-gnu/libQt5Widgets.so.5.12.8 /usr/lib/x86_64-linux-gnu/libQt5Gui.so.5.12.8 /usr/lib/x86_64-linux-gnu/libQt5Core.so.5.12.8 

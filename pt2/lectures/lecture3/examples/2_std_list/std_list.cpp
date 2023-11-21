@@ -32,7 +32,7 @@ void testAccess(const std::list<std::string>& goodThings)
 
 
 	std::cout << "Are there any good things? " << std::boolalpha << !(goodThings.empty()) <<
-		"\nHow many are there good things? " << goodThings.size() << std::endl;
+		"\nHow many good things are there? " << goodThings.size() << std::endl;
 }
 
 void testInsert(std::list<std::string>& goodThings)
