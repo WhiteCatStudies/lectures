@@ -12,6 +12,11 @@ void ThisClass::setVal(int val)
 	this->_val = val;
 }
 
+const ThisClass* ThisClass::getThis() const
+{
+	return this;
+}
+
 // не скомпилируется: в статические функции не передаётся указатель this
 // void ThisClass::printVal()
 // {

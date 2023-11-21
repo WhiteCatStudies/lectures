@@ -4,6 +4,9 @@ class Chunk
 {
 public:
 	Chunk(const char* buf, size_t len);
+	// Конструктор копирования действительно нужен,
+	// тк класс Chunk управляет динамически выделенной памятью
+	Chunk(const Chunk& other);
 	~Chunk();
 
 private:

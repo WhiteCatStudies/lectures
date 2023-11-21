@@ -27,21 +27,9 @@ int main()
 	cat.play();
 	cat.play();
 	cat.play();
-	
-	cat.feed();
-	cat.feed();
-	cat.feed();
-	cat.feed();
-	cat.feed();
-	cat.feed();
-	cat.feed();
-
-	cat.play();
-	
-	cat.feed();
-	
 	cat.play();
 	std::getchar();
 
 	play();
+	std::getchar();
 }

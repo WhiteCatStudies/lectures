@@ -20,6 +20,8 @@ Cat::Cat(const std::string& name, const std::string& breed,
 
 Cat::Cat() 
 {
+	// Такой конструктор копирования определять не нужно - 
+	// компилятор может сгенерировать его сам 
 	_mood = 0;
 	_energy = 0;
 	_hunger = 0;

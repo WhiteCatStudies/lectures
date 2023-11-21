@@ -3,11 +3,13 @@
 
 typedef unsigned int uint;
 
+
 class Person
 {
 public:
 	Person(const std::string& name,
 		uint money, uint energy, uint time);
+
 	void say() const;
 
 	void sayMoney() const;

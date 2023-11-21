@@ -15,7 +15,7 @@ void catRefFunc(const Cat& cat)
 
 Cat catReturningFunc()
 {
-	Cat testCat = Cat("Test", "usual", 10, 20, 60);
+	Cat testCat = Cat("Returned cat", "usual", 10, 20, 60);
 	std::cout << "Take your cat back!" << std::endl;
 	return testCat;
 }
@@ -24,10 +24,23 @@ int main()
 {
 
 	Cat testCat = Cat("Test", "usual", 10, 20, 60);
-	catFunc(testCat);
-	//catRefFunc(testCat);
-	//catReturningFunc();
-	//Cat test = testCat;
+	std::getchar();
 
-	getchar();
+	std::cout << "Make a copy of cat" << std::endl;
+	Cat newCat = testCat;
+	std::getchar();
+
+	std::cout << "Pass the cat by value" << std::endl;
+	catFunc(testCat);
+	std::getchar();
+
+	std::cout << "Pass the cat by reference" << std::endl;
+	catRefFunc(testCat);
+	std::getchar();
+
+	// Оптимизация: вызова конструктора копирования и деструктора копии не будет 
+	std::cout << "Return cat from a function" << std::endl;
+	Cat returnedCat = catReturningFunc();
+
+	std::getchar();
 }

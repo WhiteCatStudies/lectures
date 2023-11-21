@@ -14,17 +14,17 @@ void swapFridges(Fridge& first, Fridge& second)
 	// её нельзя объявить константной - перемещающий конструктор \
 	// и оператор перемещающего присваивания принимают rvalue-ссылки 
 	// на неконстаный объект
-	//Fridge tmp = std::move(first);
+	Fridge tmp = std::move(first);
 	// Конструктор копирования создал бы лишний временный холодильник
-	Fridge tmp = first;
+	// Fridge tmp = first;
 
 	std::cout << "Moving second fridge to first" << std::endl;
-	//first = std::move(second);
-	first = second;
+	first = std::move(second);
+	// first = second;
 
 	std::cout << "Moving temporary to second" << std::endl;
-	//second = std::move(tmp);
-	second = tmp;
+	second = std::move(tmp);
+	// second = tmp;
 }
 
 int main()

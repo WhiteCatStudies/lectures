@@ -8,9 +8,10 @@ const int Cat::_MAX = 10;
 
  
 Cat::Cat(const std::string& name, const std::string& breed,
-	int mood, int energy, int hunger):
-	_breed(breed), _name(name), _mood(_validate(mood))
+	int mood, int energy, int hunger)
 {
+	_breed = breed;
+	_name = name;
 	_mood = _validate(mood);
 	_energy = _validate(energy);
 	_hunger = _validate(hunger);
@@ -28,7 +29,7 @@ Cat::Cat()
 	// _breed = std::string();
 	// _name = std::string();
 
-	std::cout << "Hello! I am a cat with no name " << std::endl;
+	std::cout << "Hello! I am a default cat with no name " << std::endl;
 }
 
 void Cat::play() 
@@ -111,11 +112,13 @@ inline int Cat::_decrease(int val)
 
 int Cat::_validate(int val)
 {
-	if (val > _MAX) {
+	if (val > _MAX) 
+	{
 		return _MAX;
 	}
 
-	if (val < 0) {
+	if (val < 0) 
+	{
 		return 0;
 	}
 
@@ -124,6 +127,7 @@ int Cat::_validate(int val)
 
 Cat::~Cat()
 {
-	std::cout << "I am " << _name <<  "! I go to my new home! Goodbue!" << std::endl;
+	const std::string actualName = _name.empty() ? "default cat" : _name;  
+	std::cout << "I am " << actualName <<  "! I go to my new home! Goodbe!" << std::endl;
 	std::cout << "-------------------------------" << std::endl;
 }

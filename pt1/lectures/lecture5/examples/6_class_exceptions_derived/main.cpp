@@ -66,7 +66,7 @@ int main(int argc, char* argv[])
 		try
 		{
 			// Функця std::stoi "бросает" 2 исключения: 
-			// - std::invalid_argument, когда строку енвозможно преобразовать в число
+			// - std::invalid_argument, когда строку невозможно преобразовать в число
 			// - std::out_of_range, когда результат приводит 
 			// к переполнению целевого типа (здесь - int)
 			maxTime = std::stoi(timeArg);

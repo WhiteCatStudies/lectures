@@ -22,7 +22,7 @@ int main()
 	// нужно задавать тип явно при вызове функции
 
 	// Не скомпилируется: couldn’t deduce template parameter ‘T’
-	//printUninit();
+	// printUninit();
 	printUninit<int>();
 	printUninit<long>();
 	printUninit<double>();

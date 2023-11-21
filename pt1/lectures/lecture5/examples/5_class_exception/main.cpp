@@ -12,7 +12,7 @@
 #include "exception.h"
 
 
-static const int MAX_TIME = 15;
+static const int MAX_TIME = 18;
 
 void goToInstitite()
 {

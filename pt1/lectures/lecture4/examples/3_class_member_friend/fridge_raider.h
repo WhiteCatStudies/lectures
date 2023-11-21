@@ -1,5 +1,5 @@
 // header guard гарантирует, что препроцессор вставит заголовочный файл только 1 раз
-// #pragma once
+#pragma once
 // альтернатива #pragma once: #ifndef FILENAME_H #define FILENAME_H #endif  
 // #ifndef FRIDGE_RAIDER_H
 // #define FRIDGE_RAIDER_H

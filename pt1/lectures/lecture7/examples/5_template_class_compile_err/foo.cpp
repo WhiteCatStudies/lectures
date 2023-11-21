@@ -13,4 +13,4 @@ T Foo<T>::getParam() const
 
 // Создание специализации Foo<int> во время компиляции
 // Если тип Foo<int> определён, ошибки линкера не будет
-template class Foo<int>;
+// template class Foo<int>;

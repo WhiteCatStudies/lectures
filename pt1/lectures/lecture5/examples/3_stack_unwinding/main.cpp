@@ -15,8 +15,8 @@ void funcD()
 
 	// Генерируем исключения разных типов
 	// throw 99.;
-	// throw 99;
-	throw 'a';
+	throw 99;
+	// throw 'a';
 	
 	std::cout << "Returning from funcD" << std::endl;
 }

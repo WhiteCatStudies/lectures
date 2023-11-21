@@ -8,26 +8,26 @@ int main() {
     Young young = Young("Wasya");
     Adult adult = Adult("Anya", "MIREA");
     Old old = Old("Frosia");
-    std::cout << std::endl;
+    std::getchar();
 
     young.say();
     young.sayMoney();
     young.sayTime();
     young.sayEnergy();
     young.goStudy();
-    std::cout << std::endl;
+    std::getchar();
 
     adult.say();
     adult.goWork();
     adult.sayTime();
     adult.sayEnergy();
     adult.sayMoney();
-    std::cout << std::endl;
+    std::getchar();
 
     old.say();
     old.sayTime();
     old.sayMoney();
     old.sayEnergy();
     old.goFeedPegeons();
-    std::cout << std::endl;
+    std::getchar();
 }

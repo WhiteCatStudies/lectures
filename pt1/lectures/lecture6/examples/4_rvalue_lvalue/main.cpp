@@ -86,4 +86,4 @@ int main()
 	int y = getRVal();
 	// неа
 	// getRVal() = 4;
-}
+}	

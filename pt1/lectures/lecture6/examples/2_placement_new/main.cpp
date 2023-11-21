@@ -30,7 +30,7 @@ int main()
 			"\nIs this pointer equal to MyClass this pointer?\n" << 
 			(myPtr->checkThis(myPtr)) << "\n" << std::endl;
 
-		// Пожалуй, это едиснвтенный случай, 
+		// Пожалуй, это единственный случай, 
 		// когда необходимо вызвать деструктор в явном виде.
 		// В неявном виде деструктор вызван не будет
 		myPtr->~MyClass();

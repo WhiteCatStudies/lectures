@@ -6,7 +6,7 @@
 
 void printPair(const std::pair<int, int>& p)
 {
-	std::cout << "first: " << p.first << "; second" << p.second << "\n"; 
+	std::cout << "first: " << p.first << "; second: " << p.second << "\n"; 
 }
 
 int main()
@@ -56,7 +56,7 @@ int main()
 	std::cout << "Second vector is: " << second << "\n";
 	std::getchar();
 
-	std::cout << "Assigning to new vector first vector multiplyed by 2\nvector * coeff";
+	std::cout << "Assigning to new vector first vector multiplyed by 2\nvector * coeff\n";
 	// сможет вызвать оператор умножения из класса Vector
 	Vector multiplyed = first * 2;
 	std::cout << "The new vector is " << multiplyed << "\n";
@@ -74,5 +74,6 @@ int main()
 		std::cout << "Vector " << first << " is not empty\n";
 	}
 
+	std::getchar();
 	printPair(first);
 }
