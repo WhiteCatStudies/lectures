@@ -7,7 +7,7 @@ public:
 	Adult(const std::string& name, const std::string& work);
 	~Adult();
 	void say() const;
-	void act() const;
+	void goWork() const;
 
 private:
 	std::string _work;

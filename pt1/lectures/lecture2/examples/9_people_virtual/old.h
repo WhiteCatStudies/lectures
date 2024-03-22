@@ -7,6 +7,6 @@ public:
 	Old(const std::string& name);
 	~Old();
 	void say() const override;
-	void act() const;
+	void goFeedPegeons() const;
 };
 

@@ -15,7 +15,7 @@ void catRefFunc(const Cat& cat)
 
 Cat catReturningFunc()
 {
-	Cat testCat = Cat("Returned", "usual", 10, 20, 60);
+	Cat testCat = Cat("Returned cat", "usual", 10, 20, 60);
 	std::cout << "Take your cat back!" << std::endl;
 	return testCat;
 }

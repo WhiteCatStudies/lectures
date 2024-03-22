@@ -13,11 +13,6 @@ void Person::say() const
 	std::cout << "I am a Person, let me say!" << std::endl;
 }
 
-void Person::act() const
-{
-	std::cout << "I can do smth!" << std::endl;
-}
-
 void Person::sayMoney() const
 {
 	std::cout << "I have " << _money << " money" << std::endl;

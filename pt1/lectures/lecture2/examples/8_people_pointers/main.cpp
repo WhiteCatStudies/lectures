@@ -18,26 +18,27 @@ int main() {
     std::cout << "----------" << std::endl;
     std::cout << "The pointer points to base class object" << std::endl;
     Person* basePointer = &person;
-    // метод say() вызывается из базового класса Person
     basePointer->say();
+    // не скомпилируется - у класса Person нет такого метода
+    //basePointer->goWork(); 
+    // но мы можем привести тип basePointer 
+    // к указателю на производный тип
     std::cout << "----------" << std::endl;
     std::getchar();
 
     std::cout << "----------" << std::endl;
     std::cout << "Cast pointer to Person (base) to pointer to Adult (derived)" << std::endl;
     // Здесь стоит использовать dynamic_cast, но об этом позже
-    // указатель static_cast<Adult*>(basePointer) имеет тип Adult*
-    // метод say вызывается из производного класса - Adult
-    (static_cast<Adult*>(basePointer))->say();
+    (static_cast<Adult*>(basePointer))->goWork();
 
     std::cout << "----------" << std::endl;
     std::getchar();
 
-    std::cout << "----------" << std::endl;
-    std::cout << "The pointer points to derived class object" << std::endl;
     // указатель на базовый тип может использоваться 
     // для доступа к производному типу
     // но он имеет доступ только к тому, что есть в самом базовом классе
+    std::cout << "----------" << std::endl;
+    std::cout << "The pointer points to derived class object" << std::endl;
     basePointer = &adult;
     basePointer->say();
 

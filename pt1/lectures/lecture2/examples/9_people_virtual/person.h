@@ -8,9 +8,7 @@ class Person
 public:
 	Person(const std::string& name,
 		uint money, uint energy, uint time);
-
 	virtual void say() const;
-	virtual void act() const;
 
 	void sayMoney() const;
 	void sayEnergy() const;

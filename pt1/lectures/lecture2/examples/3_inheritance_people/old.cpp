@@ -17,7 +17,7 @@ void Old::say() const
 	std::cout << "Old: It is time to dye my hair violet!" << std::endl;
 }
 
-void Old::act() const
+void Old::goFeedPegeons() const
 {
 	std::cout << "Old: Hello pigeons!" << std::endl;
 }
