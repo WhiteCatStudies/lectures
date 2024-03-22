@@ -17,7 +17,7 @@ void Adult::say() const
 	std::cout << "Adult: I will be paying my mortgage for 30 years" << std::endl;
 }
 
-void Adult::goWork() const
+void Adult::act() const
 {
 	std::cout << "Adult: Lets go write some code" << std::endl;
 }

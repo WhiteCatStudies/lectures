@@ -9,7 +9,7 @@ public:
 	Old(const std::string& name);
 	~Old();
 	void say() const;
-	void goFeedPegeons() const;
+	void act() const;
 
 	void sayMoney() const;
 	void sayEnergy() const;

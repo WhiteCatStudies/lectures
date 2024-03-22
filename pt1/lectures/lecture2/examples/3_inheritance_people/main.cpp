@@ -11,23 +11,23 @@ int main() {
     std::getchar();
 
     young.say();
+    young.act();
     young.sayMoney();
     young.sayTime();
     young.sayEnergy();
-    young.goStudy();
     std::getchar();
 
     adult.say();
-    adult.goWork();
+    adult.act();
     adult.sayTime();
     adult.sayEnergy();
     adult.sayMoney();
     std::getchar();
 
     old.say();
+    old.act();
     old.sayTime();
     old.sayMoney();
     old.sayEnergy();
-    old.goFeedPegeons();
     std::getchar();
 }

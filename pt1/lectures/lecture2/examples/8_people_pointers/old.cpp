@@ -12,7 +12,7 @@ void Old::say() const
 	std::cout << "Old: It is time to dye my hair violet!" << std::endl;
 }
 
-void Old::goFeedPegeons() const
+void Old::act() const
 {
 	std::cout << "Old: Hello pigeons!" << std::endl;
 }

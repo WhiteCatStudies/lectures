@@ -8,8 +8,9 @@ class Adult
 public:
 	Adult(const std::string& name, const std::string& work);
 	~Adult();
+
 	void say() const;
-	void goWork() const;
+	void act() const;
 
 	void sayMoney() const;
 	void sayEnergy() const;

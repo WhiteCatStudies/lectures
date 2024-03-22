@@ -18,7 +18,7 @@ void Young::saySmthCool() const
 	std::cout << "Young: *Says something. No one above 15 understands a word*" << std::endl;
 }
 
-void Young::goStudy() const
+void Young::act() const
 {
 	std::cout << "Young: I have slept just for 3 hours today! I can not study. Lets go party!" << std::endl;
 }

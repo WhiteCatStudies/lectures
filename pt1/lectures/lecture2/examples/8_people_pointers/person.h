@@ -9,6 +9,7 @@ public:
 	Person(const std::string& name,
 		uint money, uint energy, uint time);
 	void say() const;
+	void act() const;
 
 	void sayMoney() const;
 	void sayEnergy() const;

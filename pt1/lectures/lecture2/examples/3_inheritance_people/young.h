@@ -9,9 +9,10 @@ public:
 	Young(const std::string& name);
 	~Young();
 	void say() const;
-	void saySmthCool() const;
-	void goStudy() const;
+	void act() const;
 
+	void saySmthCool() const;
+	
 	void sayMoney() const;
 	void sayEnergy() const;
 	void sayTime() const;

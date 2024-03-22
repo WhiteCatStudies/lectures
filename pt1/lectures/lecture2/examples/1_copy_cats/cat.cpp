@@ -20,8 +20,6 @@ Cat::Cat(const std::string& name, const std::string& breed,
 
 Cat::Cat() 
 {
-	// Такой конструктор копирования определять не нужно - 
-	// компилятор может сгенерировать его сам 
 	_mood = 0;
 	_energy = 0;
 	_hunger = 0;
@@ -34,6 +32,8 @@ Cat::Cat()
 
 Cat::Cat(const Cat& other)
 {
+	// Такой конструктор копирования определять не нужно - 
+	// компилятор может сгенерировать его сам 
 	_name = "Copy of " + other._name;
 	_breed = other._breed;
 
@@ -44,7 +44,6 @@ Cat::Cat(const Cat& other)
 	std::cout << "Hello! I am a copy of " << other._name << " the cat" << std::endl;
 
 }
-
 
 void Cat::play() 
 {

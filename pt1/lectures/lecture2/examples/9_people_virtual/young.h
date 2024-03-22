@@ -7,7 +7,8 @@ public:
 	Young(const std::string& name);
 	~Young();
 	void say() const override;
+	void act() const override;
+	
 	void saySmthCool() const;
-	void goStudy() const;
 };
 

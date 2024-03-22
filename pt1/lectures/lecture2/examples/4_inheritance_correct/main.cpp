@@ -14,11 +14,11 @@ int main() {
     young.sayMoney();
     young.sayTime();
     young.sayEnergy();
-    young.goStudy();
+    young.act();
     std::getchar();
 
     adult.say();
-    adult.goWork();
+    adult.act();
     adult.sayTime();
     adult.sayEnergy();
     adult.sayMoney();
@@ -28,6 +28,6 @@ int main() {
     old.sayTime();
     old.sayMoney();
     old.sayEnergy();
-    old.goFeedPegeons();
+    old.act();
     std::getchar();
 }

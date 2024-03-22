@@ -8,6 +8,6 @@ public:
 	~Young();
 	void say() const;
 	void saySmthCool() const;
-	void goStudy() const;
+	void act() const;
 };
 
