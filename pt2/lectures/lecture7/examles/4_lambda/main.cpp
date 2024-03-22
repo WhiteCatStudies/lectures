@@ -149,7 +149,7 @@ void lambdaReturnType()
 		} 
 	};
 
-	auto obj = myLambda(0);
+	auto obj = myLambda(0);\
 	std::cout << *obj << std::endl;
 	delete obj;
 }
